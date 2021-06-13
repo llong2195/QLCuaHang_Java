@@ -189,6 +189,7 @@ public class panelBanHang extends javax.swing.JPanel {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -307,11 +308,12 @@ public class panelBanHang extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(spSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Chức Năng"));
 
+        btnTaoHD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/add.png"))); // NOI18N
         btnTaoHD.setText("Tạo Hóa Đơn");
         btnTaoHD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -319,6 +321,7 @@ public class panelBanHang extends javax.swing.JPanel {
             }
         });
 
+        btnThemMon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/add.png"))); // NOI18N
         btnThemMon.setText("Thêm Món");
         btnThemMon.setEnabled(false);
         btnThemMon.addActionListener(new java.awt.event.ActionListener() {
@@ -327,6 +330,7 @@ public class panelBanHang extends javax.swing.JPanel {
             }
         });
 
+        btnXoaMon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/delete.png"))); // NOI18N
         btnXoaMon.setText("Xóa Món");
         btnXoaMon.setEnabled(false);
         btnXoaMon.addActionListener(new java.awt.event.ActionListener() {
@@ -352,9 +356,9 @@ public class panelBanHang extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(btnTaoHD)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addComponent(btnThemMon)
-                .addGap(44, 44, 44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnXoaMon)
                 .addGap(21, 21, 21))
         );
@@ -386,6 +390,7 @@ public class panelBanHang extends javax.swing.JPanel {
 
         jLabel14.setText("VND");
 
+        btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ref.png"))); // NOI18N
         btnReset.setText("Reset");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -427,7 +432,7 @@ public class panelBanHang extends javax.swing.JPanel {
                     .addComponent(jLabel14))
                 .addGap(18, 18, 18)
                 .addComponent(btnReset)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Món Ăn"));
@@ -834,6 +839,7 @@ public class panelBanHang extends javax.swing.JPanel {
     private javax.swing.JButton btnThemMon;
     private javax.swing.JButton btnTimkiem;
     private javax.swing.JButton btnXoaMon;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbbKhachHang;
     private javax.swing.JComboBox<String> cbbLoai;
     private javax.swing.JComboBox<String> cbbLoaiKhach;

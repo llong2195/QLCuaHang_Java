@@ -221,6 +221,7 @@ public class panelThongKe extends javax.swing.JPanel {
         jLabel3.setText("VND");
 
         btnTaiLai.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnTaiLai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ref.png"))); // NOI18N
         btnTaiLai.setText("Tải Lại");
         btnTaiLai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,7 +266,7 @@ public class panelThongKe extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jScrollPane1))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(477, 609, Short.MAX_VALUE)
+                        .addGap(477, 556, Short.MAX_VALUE)
                         .addComponent(cbbTuyChon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(96, 96, 96)
                         .addComponent(btnTaiLai)
@@ -298,6 +299,9 @@ public class panelThongKe extends javax.swing.JPanel {
                         .addComponent(jLabel6)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnTaiLai, btnXuatDT, cbbTuyChon});
+
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -308,7 +312,7 @@ public class panelThongKe extends javax.swing.JPanel {
                     .addComponent(btnXuatDT)
                     .addComponent(btnTaiLai)
                     .addComponent(cbbTuyChon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNgayBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
@@ -324,6 +328,8 @@ public class panelThongKe extends javax.swing.JPanel {
                     .addComponent(lbTongDanhThu))
                 .addGap(27, 27, 27))
         );
+
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnTaiLai, btnXuatDT, cbbTuyChon});
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -352,6 +358,7 @@ public class panelThongKe extends javax.swing.JPanel {
         jLabel7.setText("Báo Cáo Món Ăn HOT");
 
         btnTaiLaiMA.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnTaiLaiMA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ref.png"))); // NOI18N
         btnTaiLaiMA.setText("Tải Lại");
         btnTaiLaiMA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -429,6 +436,9 @@ public class panelThongKe extends javax.swing.JPanel {
                         .addComponent(jLabel12)))
                 .addContainerGap(427, Short.MAX_VALUE))
         );
+
+        jPanel6Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnTaiLaiMA, btnXuatMA, cbbTuyChon1});
+
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
@@ -439,7 +449,7 @@ public class panelThongKe extends javax.swing.JPanel {
                     .addComponent(btnXuatMA)
                     .addComponent(btnTaiLaiMA)
                     .addComponent(cbbTuyChon1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNgayBD1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
@@ -450,6 +460,8 @@ public class panelThongKe extends javax.swing.JPanel {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        jPanel6Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnTaiLaiMA, btnXuatMA, cbbTuyChon1});
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
