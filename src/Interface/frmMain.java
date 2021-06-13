@@ -105,17 +105,19 @@ public class frmMain extends javax.swing.JFrame {
         jLabel8.setText("jLabel8");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 102));
         jPanel1.setToolTipText("");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 2, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logo.jpg"))); // NOI18N
         jLabel3.setText("Cửa Hàng Đồ Ăn Vặt YuTang");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
@@ -133,14 +135,14 @@ public class frmMain extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(373, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(217, 217, 217))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(331, 331, 331)))
+                        .addGap(331, 331, 331))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(137, 137, 137)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -149,9 +151,8 @@ public class frmMain extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(4, 4, 4)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
                 .addComponent(jLabel7)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -162,9 +163,9 @@ public class frmMain extends javax.swing.JFrame {
                 .addGap(27, 27, 27))
         );
 
-        panelLeft.setBackground(new java.awt.Color(0, 255, 255));
+        panelLeft.setBackground(new java.awt.Color(255, 255, 255));
 
-        pnTrangChu.setBackground(new java.awt.Color(0, 204, 204));
+        pnTrangChu.setBackground(new java.awt.Color(255, 204, 102));
         pnTrangChu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnTrangChuMouseClicked(evt);
@@ -191,7 +192,7 @@ public class frmMain extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnBanHang.setBackground(new java.awt.Color(0, 204, 204));
+        pnBanHang.setBackground(new java.awt.Color(255, 204, 102));
         pnBanHang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnBanHangMouseClicked(evt);
@@ -218,7 +219,7 @@ public class frmMain extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnHoaDon.setBackground(new java.awt.Color(0, 204, 204));
+        pnHoaDon.setBackground(new java.awt.Color(255, 204, 102));
         pnHoaDon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnHoaDonMouseClicked(evt);
@@ -245,7 +246,7 @@ public class frmMain extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnNhanVien.setBackground(new java.awt.Color(0, 204, 204));
+        pnNhanVien.setBackground(new java.awt.Color(255, 204, 102));
         pnNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnNhanVienMouseClicked(evt);
@@ -272,7 +273,7 @@ public class frmMain extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnThongKe.setBackground(new java.awt.Color(0, 204, 204));
+        pnThongKe.setBackground(new java.awt.Color(255, 204, 102));
         pnThongKe.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnThongKeMouseClicked(evt);
@@ -299,7 +300,7 @@ public class frmMain extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnKhachHang.setBackground(new java.awt.Color(0, 204, 204));
+        pnKhachHang.setBackground(new java.awt.Color(255, 204, 102));
         pnKhachHang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnKhachHangMouseClicked(evt);
@@ -326,7 +327,7 @@ public class frmMain extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnMonAn.setBackground(new java.awt.Color(0, 204, 204));
+        pnMonAn.setBackground(new java.awt.Color(255, 204, 102));
         pnMonAn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnMonAnMouseClicked(evt);
@@ -400,7 +401,7 @@ public class frmMain extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelRight, javax.swing.GroupLayout.DEFAULT_SIZE, 1040, Short.MAX_VALUE))
+                .addComponent(panelRight, javax.swing.GroupLayout.PREFERRED_SIZE, 1040, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

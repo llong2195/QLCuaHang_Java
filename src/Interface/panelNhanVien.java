@@ -120,6 +120,7 @@ public class panelNhanVien extends javax.swing.JPanel {
 
         jTextField2.setText("jTextField2");
 
+        setBackground(new java.awt.Color(255, 204, 102));
         setMaximumSize(new java.awt.Dimension(1040, 610));
         setMinimumSize(new java.awt.Dimension(1040, 610));
         setPreferredSize(new java.awt.Dimension(1040, 610));

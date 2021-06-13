@@ -97,6 +97,7 @@ public class panelKhachHang extends javax.swing.JPanel {
         txtTimKiem = new javax.swing.JTextField();
         btnTimKiem = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 204, 102));
         setMaximumSize(new java.awt.Dimension(1040, 610));
         setMinimumSize(new java.awt.Dimension(1040, 610));
 

@@ -167,6 +167,7 @@ public class panelThongKe extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(1040, 610));
         setMinimumSize(new java.awt.Dimension(1040, 610));
 
+        jTabbedPane1.setBackground(new java.awt.Color(255, 204, 102));
         jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Doanh Thu"));
