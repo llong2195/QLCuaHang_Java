@@ -8,13 +8,10 @@ package Interface;
 import Controller.Excel;
 import Process.ThongKe;
 import java.sql.ResultSet;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,7 +19,6 @@ import javax.swing.table.DefaultTableModel;
  * @author llong
  */
 public class panelThongKe extends javax.swing.JPanel {
-    DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
     ThongKe TK = new ThongKe();
     Excel excel = new Excel();
     final DefaultTableModel DoanhThuTableModel = new DefaultTableModel();
@@ -47,25 +43,16 @@ public class panelThongKe extends javax.swing.JPanel {
         clearData(false);
         ShowData(false);
     }
-    private boolean checkDate(String str){
-         formatter.setLenient(false);
-            try {
-                Date date= formatter.parse(str.replaceAll("-", "/"));
-                return true;
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this,"Ngày Không Hợp Lệ !");
-                return false;
-            }
-    }
+
     // true Doanh Thu - false Mon An
     private void clearData(boolean x){
         clearTB(x);
         if(x){
-            txtNgayBD.setText("");
-            txtNgayKT.setText("");
+            dcNgayBD.setCalendar(null);
+            dcNgayKT.setCalendar(null);
         }else{
-            txtNgayBD1.setText("");
-            txtNgayKT1.setText("");
+            dcNgayBD1.setCalendar(null);
+            dcNgayKT1.setCalendar(null);
         }
         
     }
@@ -133,25 +120,23 @@ public class panelThongKe extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         btnTaiLai = new javax.swing.JButton();
         lbTongDanhThu = new javax.swing.JLabel();
-        txtNgayBD = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtNgayKT = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
         cbbTuyChon = new javax.swing.JComboBox<>();
+        dcNgayBD = new com.toedter.calendar.JDateChooser();
+        dcNgayKT = new com.toedter.calendar.JDateChooser();
         jPanel3 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         btnXuatMA = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         btnTaiLaiMA = new javax.swing.JButton();
-        txtNgayBD1 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        txtNgayKT1 = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbMonAnHot = new javax.swing.JTable();
         cbbTuyChon1 = new javax.swing.JComboBox<>();
+        dcNgayBD1 = new com.toedter.calendar.JDateChooser();
+        dcNgayKT1 = new com.toedter.calendar.JDateChooser();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -234,19 +219,11 @@ public class panelThongKe extends javax.swing.JPanel {
         lbTongDanhThu.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbTongDanhThu.setText(" ");
 
-        txtNgayBD.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtNgayBD.setEnabled(false);
-
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Từ Ngày :");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Đến Ngày :");
-
-        txtNgayKT.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtNgayKT.setEnabled(false);
-
-        jLabel6.setText("dd-mm-yyyy");
 
         cbbTuyChon.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cbbTuyChon.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tùy Chọn", "Tất Cả" }));
@@ -256,6 +233,12 @@ public class panelThongKe extends javax.swing.JPanel {
                 cbbTuyChonItemStateChanged(evt);
             }
         });
+
+        dcNgayBD.setDateFormatString("yyyy/MM/dd");
+        dcNgayBD.setEnabled(false);
+
+        dcNgayKT.setDateFormatString("yyyy/MM/dd");
+        dcNgayKT.setEnabled(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -291,13 +274,11 @@ public class panelThongKe extends javax.swing.JPanel {
                         .addGap(46, 46, 46)
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
-                        .addComponent(txtNgayBD, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66)
+                        .addComponent(dcNgayBD, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
                         .addComponent(jLabel5)
                         .addGap(18, 18, 18)
-                        .addComponent(txtNgayKT, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6)))
+                        .addComponent(dcNgayKT, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -313,14 +294,15 @@ public class panelThongKe extends javax.swing.JPanel {
                     .addComponent(btnXuatDT)
                     .addComponent(btnTaiLai)
                     .addComponent(cbbTuyChon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNgayBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(txtNgayKT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(46, 46, 46)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dcNgayBD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(dcNgayKT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))))
+                .addGap(49, 49, 49)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -367,19 +349,11 @@ public class panelThongKe extends javax.swing.JPanel {
             }
         });
 
-        txtNgayBD1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtNgayBD1.setEnabled(false);
-
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel10.setText("Từ Ngày :");
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel11.setText("Đến Ngày :");
-
-        txtNgayKT1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtNgayKT1.setEnabled(false);
-
-        jLabel12.setText("dd-mm-yyyy");
 
         tbMonAnHot.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -403,39 +377,45 @@ public class panelThongKe extends javax.swing.JPanel {
             }
         });
 
+        dcNgayBD1.setDateFormatString("yyyy/MM/dd");
+        dcNgayBD1.setEnabled(false);
+
+        dcNgayKT1.setDateFormatString("yyyy/MM/dd");
+        dcNgayKT1.setEnabled(false);
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cbbTuyChon1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96)
-                .addComponent(btnTaiLaiMA)
-                .addGap(73, 73, 73)
-                .addComponent(btnXuatMA)
-                .addGap(23, 23, 23))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3)
-                .addContainerGap())
-            .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(377, 377, 377)
-                        .addComponent(jLabel7))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(377, 377, 377)
+                                .addComponent(jLabel7))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(47, 47, 47)
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(dcNgayBD1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(jLabel11)
+                                .addGap(18, 18, 18)
+                                .addComponent(dcNgayKT1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 417, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jLabel10)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNgayBD1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66)
-                        .addComponent(jLabel11)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNgayKT1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel12)))
-                .addContainerGap(427, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(cbbTuyChon1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(96, 96, 96)
+                                .addComponent(btnTaiLaiMA)
+                                .addGap(73, 73, 73)
+                                .addComponent(btnXuatMA)))))
+                .addContainerGap())
         );
 
         jPanel6Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnTaiLaiMA, btnXuatMA, cbbTuyChon1});
@@ -450,14 +430,14 @@ public class panelThongKe extends javax.swing.JPanel {
                     .addComponent(btnXuatMA)
                     .addComponent(btnTaiLaiMA)
                     .addComponent(cbbTuyChon1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNgayBD1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11)
-                    .addComponent(txtNgayKT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addGap(54, 54, 54)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel10)
+                        .addComponent(jLabel11))
+                    .addComponent(dcNgayBD1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dcNgayKT1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(57, 57, 57)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -489,71 +469,6 @@ public class panelThongKe extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnTaiLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaiLaiActionPerformed
-        // TODO add your handling code here:
-        System.out.println(cbbTuyChon.getSelectedItem());
-        if(cbbTuyChon.getSelectedItem().equals("Tùy Chọn")){
-            String NgayBD = txtNgayBD.getText();
-            String NgayKT = txtNgayKT.getText();
-            System.out.println(NgayBD);
-            if(checkDate(NgayKT) && checkDate(NgayBD)){
-                try {
-                    ResultSet rs = null;
-                    rs = TK.getData_BCDoanhThu(NgayBD, NgayKT);
-                    clearTB(true);
-                    int TongDanhThu = 0;
-                    while(rs.next()){
-                        String rows[] = new String[5];
-                        rows[0] = rs.getString("MaHD");
-                        rows[1] = rs.getString("TenNV");
-                        rows[2] = rs.getString("TenKH");
-                        rows[3] = rs.getString("NgayHD");
-                        rows[4] = rs.getString("TongTien");
-                        TongDanhThu += Integer.parseInt(rows[4]);
-                        DoanhThuTableModel.addRow(rows);
-                    }
-                    lbTongDanhThu.setText(""+TongDanhThu);
-                } catch (Exception ex) {
-                    Logger.getLogger(panelThongKe.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                
-            }
-        }else{
-            clearData(true);
-            txtNgayBD.setEnabled(false);
-            txtNgayKT.setEnabled(false);
-            clearTB(true);
-            ShowData(true);
-        }
-    }//GEN-LAST:event_btnTaiLaiActionPerformed
-
-    private void cbbTuyChonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbTuyChonItemStateChanged
-        try {
-            // TODO add your handling code here:
-            String cbb = cbbTuyChon.getSelectedItem().toString();
-            switch(cbb){
-                case "Tất Cả" :
-                    clearData(true);
-                    txtNgayBD.setEnabled(false);
-                    txtNgayKT.setEnabled(false);
-                    clearTB(true);
-                    ShowData(true);
-                    break;
-                case "Tùy Chọn":
-                    txtNgayBD.setText("");
-                    txtNgayKT.setText("");
-                    txtNgayBD.setEnabled(true);
-                    txtNgayKT.setEnabled(true);
-                    break;
-                default:
-                    break;
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(panelThongKe.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }//GEN-LAST:event_cbbTuyChonItemStateChanged
-
     private void cbbTuyChon1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbTuyChon1ItemStateChanged
         // TODO add your handling code here:
         try {
@@ -561,20 +476,20 @@ public class panelThongKe extends javax.swing.JPanel {
             String cbb = cbbTuyChon1.getSelectedItem().toString();
             switch(cbb){
                 case "Tất Cả" :
-                    clearData(false);
-                    txtNgayBD1.setEnabled(false);
-                    txtNgayKT1.setEnabled(false);
-                    clearTB(false);
-                    ShowData(false);
-                    break;
+                clearData(false);
+                dcNgayBD1.setEnabled(false);
+                dcNgayKT1.setEnabled(false);
+                clearTB(false);
+                ShowData(false);
+                break;
                 case "Tùy Chọn":
-                    txtNgayBD1.setText("");
-                    txtNgayKT1.setText("");
-                    txtNgayBD1.setEnabled(true);
-                    txtNgayKT1.setEnabled(true);
-                    break;
+                dcNgayBD1.setCalendar(null);
+                dcNgayKT1.setCalendar(null);
+                dcNgayBD1.setEnabled(true);
+                dcNgayKT1.setEnabled(true);
+                break;
                 default:
-                    break;
+                break;
             }
         } catch (Exception ex) {
             Logger.getLogger(panelThongKe.class.getName()).log(Level.SEVERE, null, ex);
@@ -584,33 +499,29 @@ public class panelThongKe extends javax.swing.JPanel {
     private void btnTaiLaiMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaiLaiMAActionPerformed
         // TODO add your handling code here:
         if(cbbTuyChon1.getSelectedItem().equals("Tùy Chọn")){
-            String NgayBD = txtNgayBD1.getText();
-            String NgayKT = txtNgayKT1.getText();
+            String NgayBD = ((JTextField)dcNgayBD1.getDateEditor().getUiComponent()).getText();
+            String NgayKT = ((JTextField)dcNgayKT1.getDateEditor().getUiComponent()).getText();
             System.out.println(NgayBD);
-            if(checkDate(NgayKT) && checkDate(NgayBD)){
-                try {
-                    ResultSet rs = null;
-                    rs = TK.getData_BCMonAn(NgayBD, NgayKT);
-                    clearTB(false);
-                    while(rs.next()){
-                        System.out.println("data");
-                        String rows[] = new String[5];
-                        rows[0] = rs.getString("MaMon");
-                        rows[1] = rs.getString("TenMon");
-                        rows[2] = rs.getString("DonGia");
-                        rows[3] = rs.getString("SoLuong");
-                        rows[4] = rs.getString("TongTien");
-                        MonAnHotTableModel.addRow(rows);
+            try {
+                ResultSet rs = null;
+                rs = TK.getData_BCMonAn(NgayBD, NgayKT);
+                clearTB(false);
+                while(rs.next()){
+                    String rows[] = new String[5];
+                    rows[0] = rs.getString("MaMon");
+                    rows[1] = rs.getString("TenMon");
+                    rows[2] = rs.getString("DonGia");
+                    rows[3] = rs.getString("SoLuong");
+                    rows[4] = rs.getString("TongTien");
+                    MonAnHotTableModel.addRow(rows);
                     }
                 } catch (Exception ex) {
                     Logger.getLogger(panelThongKe.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
-            }
         }else{
             clearData(false);
-            txtNgayBD.setEnabled(false);
-            txtNgayKT.setEnabled(false);
+            dcNgayBD1.setEnabled(false);
+            dcNgayBD1.setEnabled(false);
             clearTB(false);
             ShowData(false);
         }
@@ -623,17 +534,14 @@ public class panelThongKe extends javax.swing.JPanel {
             try {
                 ResultSet rs = null;
                 if(cbbTuyChon1.getSelectedItem().equals("Tùy Chọn")){
-                    
-                    String NgayBD = txtNgayBD1.getText();
-                    String NgayKT = txtNgayKT1.getText();
+                    String NgayBD = ((JTextField)dcNgayBD1.getDateEditor().getUiComponent()).getText();
+                    String NgayKT = ((JTextField)dcNgayKT1.getDateEditor().getUiComponent()).getText();
                     Excel_Name+="Date_"+ NgayBD + "-"+NgayKT;
                     System.out.println(NgayBD);
-                    if(checkDate(NgayKT) && checkDate(NgayBD)){
-                        try {
-                            rs = TK.getData_BCMonAn(NgayBD, NgayKT);
-                        } catch (Exception ex) {
-                            Logger.getLogger(panelThongKe.class.getName()).log(Level.SEVERE, null, ex);
-                        }
+                    try {
+                        rs = TK.getData_BCMonAn(NgayBD, NgayKT);
+                    } catch (Exception ex) {
+                        Logger.getLogger(panelThongKe.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }else{
                     try {
@@ -642,7 +550,7 @@ public class panelThongKe extends javax.swing.JPanel {
                     } catch (Exception ex) {
                         Logger.getLogger(panelThongKe.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    
+
                 }
                 excel.WriteExcel(Excel_Name, ColsnameMonAn, rs);
                 JOptionPane.showMessageDialog(this, "Hoàn Thành với file name : " +  Excel_Name);
@@ -653,6 +561,67 @@ public class panelThongKe extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnXuatMAActionPerformed
 
+    private void cbbTuyChonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbTuyChonItemStateChanged
+        try {
+            // TODO add your handling code here:
+            String cbb = cbbTuyChon.getSelectedItem().toString();
+            switch(cbb){
+                case "Tất Cả" :
+                    clearData(true);
+                    dcNgayBD.setEnabled(false);
+                    dcNgayKT.setEnabled(false);
+                    clearTB(true);
+                    ShowData(true);
+                    break;
+                case "Tùy Chọn":
+                    dcNgayBD.setCalendar(null);
+                    dcNgayKT.setCalendar(null);
+                    dcNgayBD.setEnabled(true);
+                    dcNgayKT.setEnabled(true);
+                    break;
+                default:
+                    break;
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(panelThongKe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cbbTuyChonItemStateChanged
+
+    private void btnTaiLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaiLaiActionPerformed
+        // TODO add your handling code here:
+        System.out.println(cbbTuyChon.getSelectedItem());
+        if(cbbTuyChon.getSelectedItem().equals("Tùy Chọn")){
+            String NgayBD = ((JTextField)dcNgayBD.getDateEditor().getUiComponent()).getText();
+            String NgayKT = ((JTextField)dcNgayKT.getDateEditor().getUiComponent()).getText();
+            System.out.println(NgayBD);
+            try {
+                ResultSet rs = null;
+                rs = TK.getData_BCDoanhThu(NgayBD, NgayKT);
+                clearTB(true);
+                int TongDanhThu = 0;
+                while(rs.next()){
+                    String rows[] = new String[5];
+                    rows[0] = rs.getString("MaHD");
+                    rows[1] = rs.getString("TenNV");
+                    rows[2] = rs.getString("TenKH");
+                    rows[3] = rs.getString("NgayHD");
+                    rows[4] = rs.getString("TongTien");
+                    TongDanhThu += Integer.parseInt(rows[4]);
+                    DoanhThuTableModel.addRow(rows);
+                }
+                lbTongDanhThu.setText(""+TongDanhThu);
+            } catch (Exception ex) {
+                Logger.getLogger(panelThongKe.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            clearData(true);
+            dcNgayBD.setEnabled(false);
+            dcNgayKT.setEnabled(false);
+            clearTB(true);
+            ShowData(true);
+        }
+    }//GEN-LAST:event_btnTaiLaiActionPerformed
+
     private void btnXuatDTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatDTActionPerformed
         // TODO add your handling code here:
         if(JOptionPane.showConfirmDialog(this, "Bạn Muốn Xuất Execl ?") == JOptionPane.OK_OPTION){
@@ -660,17 +629,14 @@ public class panelThongKe extends javax.swing.JPanel {
             try {
                 ResultSet rs = null;
                 if(cbbTuyChon.getSelectedItem().equals("Tùy Chọn")){
-                    
-                    String NgayBD = txtNgayBD.getText();
-                    String NgayKT = txtNgayKT.getText();
+                    String NgayBD = ((JTextField)dcNgayBD.getDateEditor().getUiComponent()).getText();
+                    String NgayKT = ((JTextField)dcNgayKT.getDateEditor().getUiComponent()).getText();  
                     Excel_Name+="Date_"+ NgayBD + "-"+NgayKT;
                     System.out.println(NgayBD);
-                    if(checkDate(NgayKT) && checkDate(NgayBD)){
-                        try {
-                            rs = TK.getData_BCDoanhThu(NgayBD, NgayKT);
-                        } catch (Exception ex) {
-                            Logger.getLogger(panelThongKe.class.getName()).log(Level.SEVERE, null, ex);
-                        }
+                    try {
+                        rs = TK.getData_BCDoanhThu(NgayBD, NgayKT);
+                    } catch (Exception ex) {
+                        Logger.getLogger(panelThongKe.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }else{
                     try {
@@ -679,7 +645,7 @@ public class panelThongKe extends javax.swing.JPanel {
                     } catch (Exception ex) {
                         Logger.getLogger(panelThongKe.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    
+
                 }
                 excel.WriteExcel(Excel_Name, ColsnameMonAn, rs);
             } catch (Exception ex) {
@@ -698,15 +664,17 @@ public class panelThongKe extends javax.swing.JPanel {
     private javax.swing.JButton btnXuatMA;
     private javax.swing.JComboBox<String> cbbTuyChon;
     private javax.swing.JComboBox<String> cbbTuyChon1;
+    private com.toedter.calendar.JDateChooser dcNgayBD;
+    private com.toedter.calendar.JDateChooser dcNgayBD1;
+    private com.toedter.calendar.JDateChooser dcNgayKT;
+    private com.toedter.calendar.JDateChooser dcNgayKT1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -719,9 +687,5 @@ public class panelThongKe extends javax.swing.JPanel {
     private javax.swing.JLabel lbTongDanhThu;
     private javax.swing.JTable tbDanhThu;
     private javax.swing.JTable tbMonAnHot;
-    private javax.swing.JTextField txtNgayBD;
-    private javax.swing.JTextField txtNgayBD1;
-    private javax.swing.JTextField txtNgayKT;
-    private javax.swing.JTextField txtNgayKT1;
     // End of variables declaration//GEN-END:variables
 }

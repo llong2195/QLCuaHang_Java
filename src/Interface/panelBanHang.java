@@ -85,7 +85,7 @@ public class panelBanHang extends javax.swing.JPanel {
         try {
             ShowTBMonAn();
             ShowTBMonAnHD();
-            ResultSet rs = CTHD.getData(getMaHD());
+            ResultSet rs = HD.getData(getMaHD());
             System.out.println(getMaHD());
             if(rs.next()){
                 lbTongTien.setText(rs.getString("TongTien"));
