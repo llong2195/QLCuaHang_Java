@@ -20,6 +20,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -91,6 +92,7 @@ public class Excel {
             try {
                 workbook.write(outFile);
             } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Có Lỗi Xảy Ra !");
                 Logger.getLogger(Excel.class.getName()).log(Level.SEVERE, null, ex);
             }
             System.out.println("Created file: " + file.getAbsolutePath());

@@ -632,11 +632,11 @@ public class panelThongKe extends javax.swing.JPanel {
                     
                 }
                 excel.WriteExcel(Excel_Name, ColsnameMonAn, rs);
+                JOptionPane.showMessageDialog(this, "Hoàn Thành với file name : " +  Excel_Name);
             } catch (Exception ex) {
                 Logger.getLogger(panelThongKe.class.getName()).log(Level.SEVERE, null, ex);
                 JOptionPane.showMessageDialog(this, "Có Lỗi Xảy Ra !");
             }
-            JOptionPane.showMessageDialog(this, "Hoàn Thành với file name : " +  Excel_Name);
         }
     }//GEN-LAST:event_btnXuatMAActionPerformed
 

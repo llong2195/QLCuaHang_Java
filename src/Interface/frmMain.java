@@ -35,7 +35,7 @@ public class frmMain extends javax.swing.JFrame {
         ds.add(new DanhMuc(pnKhachHang, "pnKhachHang", new panelKhachHang()));
         ds.add(new DanhMuc(pnNhanVien, "pnNhanVien", new panelNhanVien()));
         ds.add(new DanhMuc(pnThongKe, "pnThongKe", new panelThongKe()));
-        
+        showPanel("pnTrangChu");
     }
     private void checkrole(){
         System.out.println(new frmLogin().getRole());
@@ -50,11 +50,12 @@ public class frmMain extends javax.swing.JFrame {
         panelRight.removeAll();
         for (DanhMuc item : ds) {
             if(item.getString() == str){
-                item.getJPanelLeft().setBackground(new Color(96, 100, 191));
+                item.getJPanelLeft().setBackground(new Color(255, 204, 102));
                 panelRight.add(item.getJPanelRight());
+                
             }
             else{
-                item.getJPanelLeft().setBackground(new Color(0, 204, 204));
+                item.getJPanelLeft().setBackground(new Color(255, 255, 255));
             }
         }
         panelRight.revalidate();
