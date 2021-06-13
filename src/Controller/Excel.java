@@ -57,7 +57,6 @@ public class Excel {
                 cell.setCellStyle(style);
             }
             
-            
             // Data
             while(rs.next()) {
                 rownum++;
@@ -76,7 +75,7 @@ public class Excel {
                 cell.setCellValue(rs.getString(4));
                 //
                 cell = row.createCell(4, CellType.NUMERIC);
-                cell.setCellValue(rs.getString(5));
+                cell.setCellValue(Integer.parseInt(rs.getString(5)));
                 
             }
             row = sheet.createRow(rownum+2);
