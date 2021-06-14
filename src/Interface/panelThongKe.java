@@ -641,13 +641,13 @@ public class panelThongKe extends javax.swing.JPanel {
                 }else{
                     try {
                         Excel_Name+="ALL"+(int)(Math.random()*100 + 1);
-                        rs = TK.getData_BCMonAn();
+                        rs = TK.getData_BCDoanhThu();
                     } catch (Exception ex) {
                         Logger.getLogger(panelThongKe.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
                 }
-                excel.WriteExcel(Excel_Name, ColsnameMonAn, rs);
+                excel.WriteExcel(Excel_Name, ColsnameDoanhThu, rs);
             } catch (Exception ex) {
                 Logger.getLogger(panelThongKe.class.getName()).log(Level.SEVERE, null, ex);
                 JOptionPane.showMessageDialog(this, "Có Lỗi Xảy Ra !");
