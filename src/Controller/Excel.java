@@ -38,7 +38,7 @@ public class Excel {
         return style;
     }
     public void WriteExcel(String Excel_Name, String []ColsName, ResultSet rs) throws Exception{
-        FileOutputStream outFile = null;
+            FileOutputStream outFile = null;
             HSSFWorkbook workbook = new HSSFWorkbook();
             HSSFSheet sheet = workbook.createSheet("Báo Cáo");
             
@@ -84,9 +84,10 @@ public class Excel {
             cell = row.createCell(4, CellType.FORMULA);
             cell.setCellFormula(formula);
             
-            File file = new File("C:\\Users\\Acer\\Dropbox\\My PC (LAPTOP-JSV9TQI0)\\Desktop\\java\\Excel\\"+Excel_Name+".xls");
+            File file = new File("D:\\Java\\java\\Excel\\"+Excel_Name+".xls");
             file.getParentFile().mkdirs();
             outFile = new FileOutputStream(file);
+            
             workbook.write(outFile);
             System.out.println("Created file: " + file.getAbsolutePath());
         

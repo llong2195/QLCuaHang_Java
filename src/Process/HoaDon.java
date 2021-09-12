@@ -23,7 +23,7 @@ public class HoaDon {
         ResultSet rs = null;
         try {
             conn.Connection();
-            String sql = "select * from HoaDon order by TrangThai";
+            String sql = "select * from HoaDon order by TongTien desc";
             rs = conn.GetData(sql,null);
         } catch (SQLException ex) {
             Logger.getLogger(HoaDon.class.getName()).log(Level.SEVERE, null, ex);
